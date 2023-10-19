@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <style>
-  <style>
+  
     .open-button {
       background-color: #ccc;
       color: black;
@@ -130,8 +130,8 @@
     }
 </style>
     
-<section >
-  <div class="row   " style="top: 8rem; margin-left: 7rem;" >
+<section style="height: 1200px; overflow-y: auto;">
+  <div class="row   container"  style="top: 5rem;border-radius: 10px;background-color: #191C24;margin-left: 150px;"  >
    
     <div class="col-md-10 ">
        <div class="row align-content-center">
@@ -163,13 +163,13 @@
             <div class="form-group row">
               <label  class="col-sm-2 col-form-label">Name *</label>
               <div class="col-sm-10 col-md-7 col-9" style="margin-left: -2.2rem;">
-                <input type="text" class="form-control bg-dark" name="name" value="{{e.Name}}" required>
+                <input type="text" class="form-control bg-white text-black" name="name" value="{{e.Name}}" required>
               </div>
             </div>
             <div class="form-group row">
               <label  class="col-sm-2 col-form-label">Unit <i class="fa fa-question-circle"></i></label>
               <div class="col-sm-10 col-md-7 col-9" style="margin-left: -2.2rem;">
-                <select  name="unit" class="form-control bg-dark" id="unit">
+                <select  name="unit" class="form-control bg-white text-black" id="unit">
                    {% for s in u %}    
                     {% if s.id == e.unit.id %}
                     <option value="{{s.id}} " selected >{{e.unit.unit}}</option>
@@ -184,7 +184,7 @@
             <div class="form-group row">
               <label  class="col-sm-2 col-form-label">HSN Code</label>
               <div class="col-sm-10 col-md-7 col-9" style="margin-left: -2.2rem;">
-                <input type="number" class="form-control bg-dark" name="hsn" value="{{e.hsn}}" id="myInputField" oninput="validateInput()"  required>
+                <input type="number" class="form-control bg-white text-black" name="hsn" value="{{e.hsn}}" id="myInputField" oninput="validateInput()"  required>
                 <div id="validationResult"></div>
               </div>
             </div>
@@ -212,7 +212,7 @@
             
             </script>
     
-            <section>
+            <section >
                 <div class="row">
                         <div class="col-md-6">
                             <input type="checkbox" name="selling" checked> <label >selling  information</label><br><br>
@@ -223,14 +223,14 @@
                                         <div class="input-group-prepend">
                                           <div class="input-group-text">INR</div>
                                         </div>
-                                        <input required type="text" name="sel_price" class="form-control  bg-dark" value="{{e.s_price}}" >
+                                        <input required type="text" name="sel_price" class="form-control  bg-white text-black" value="{{e.s_price}}" >
                                       </div>
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label  class="col-sm-2 col-form-label">Account *</label>
                                 <div class="col-sm-10 col-md-7 col-9 ml-5">
-                                    <select name="sel_acc" class="form-control  bg-dark" >
+                                    <select name="sel_acc" class="form-control  bg-white text-black" >
                                       {% for s in s %}    
                                       {% if s.id == e.sales.id %}
                                       <option value="{{s.id}} " selected >{{e.sales.Account_name}}</option>
@@ -253,7 +253,7 @@
                               <div class="form-group row">
                                 <label  class="col-sm-2 col-form-label">Description </label>
                                 <div class="col-sm-10 col-md-7 col-9 ml-5">
-                                  <input required type="text" name="sel_desc" class="form-control  bg-dark" value="{{e.s_desc}}" >
+                                  <input required type="text" name="sel_desc" class="form-control  bg-white text-black" value="{{e.s_desc}}" >
                                 </div>
                               </div>
                              
@@ -267,7 +267,7 @@
                                         <div class="input-group-prepend">
                                           <div class="input-group-text">INR</div>
                                         </div>
-                                        <input required type="text" class="form-control  bg-dark" name="cost_price" value="{{e.p_price}}" >
+                                        <input required type="text" class="form-control bg-white text-black" name="cost_price" value="{{e.p_price}}" >
                                       </div>
                                 </div>
                               </div>
@@ -277,7 +277,7 @@
    
    
    
-                                  <select name="cost_acc" class="form-control  bg-dark" id="myaccount">
+                                  <select name="cost_acc" class="form-control  bg-white text-black" id="myaccount">
 
                                     {% for s in p %}    
                                     {% if s.id == e.purchase.id %}
@@ -304,7 +304,7 @@
                               <div class="form-group row">
                                 <label  class="col-sm-2 col-form-label">Description </label>
                                 <div class="col-sm-10 col-md-7 col-9">
-                                  <input required  type="text" name="cost_desc" class="form-control  bg-dark" value="{{e.p_desc}}" >
+                                  <input required  type="text" name="cost_desc" class="form-control  bg-white text-black" value="{{e.p_desc}}" >
                                 </div>
                               </div>
                         </div>
@@ -344,13 +344,13 @@
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Opening Stock</label>
                         <div class="col-md-5">
-                          <input type="number" class="form-control bg-dark" name="openstock" value="{{e.stock}}">
+                          <input type="number" class="form-control bg-white text-black" name="openstock" value="{{e.stock}}">
                         </div>
                         <div class="col-md-5">
                           <div class="row align-items-center">
                             <label class="col-sm-6 col-form-label">Opening Stock Rate per Unit</label>
                             <div class="col-sm-6">
-                              <input type="number" class="form-control bg-dark" name="inventoryaccntperunit" value="{{ e.rate }}">
+                              <input type="number" class="form-control bg-white text-black" name="inventoryaccntperunit" value="{{ e.rate }}">
                             </div>
                           </div>
                         </div>

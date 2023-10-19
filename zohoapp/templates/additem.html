@@ -152,16 +152,16 @@
 
 </style>
 
-
-<section >
+<div>
+<section style="height: 1200px; overflow-y: auto;">
   
-  <div class="row    container" style="top: 6rem;border-radius: 10px;background-color: #191C24;" >
+  <div class="row  container" style="top: 5rem;border-radius: 10px;background-color: #191C24;margin-left: 150px;" >
     
     <div class="col-md-12 " style="width: 100%;">
-        <h3  class="mb-3  text-white  mt-3" style="font-size: 2rem;">New item</h3>     
+        <h3  class="mb-3  text-white  mt-4" style="font-size: 2rem;">New item</h3>     
         <hr>
         <!--  -->
-        <div style="overflow-y: scroll;height: 700px;" >
+        <!-- <div style="overflow-y: scroll;height: 700px;" > -->
           <form action="{% url 'add' %}" method="post" id="Form">
             {% csrf_token %}
             <fieldset class="form-group">
@@ -183,7 +183,7 @@
             <div class="form-group row">
               <label  class="col-sm-2 col-form-label ">Name *</label>
               <div class="col-sm-10 col-md-7 col-9" style="margin-left: -2.2rem;">
-                <input required type="text" class="form-control " name="name" id="nameInput">
+                <input required type="text" class="form-control text-black" name="name" id="nameInput">
               </div>
             </div>
             <div class="form-group row">
@@ -201,7 +201,7 @@
             <div class="form-group row">
               <label  class="col-sm-2 col-form-label">HSN Code</label> 
               <div class="col-sm-10 col-md-7 col-9"  style="margin-left: -2.2rem;" >
-                <input required type="number" class="form-control " name="hsn" id="myInputField" oninput="validateInput()">
+                <input required type="number" class="form-control text-black" name="hsn" id="myInputField" oninput="validateInput()">
                 <div id="validationResult"></div>
               </div>
             </div>
@@ -231,8 +231,8 @@
             <div class="form-inline text-white" >
               <label class="text-danger mb-4 mr-4" for="">Tax Preference  :</label>
               <p class="text-white  ">
-              <input type="radio"  name="radio" value="taxable" onclick="showAllSelect()" style="margin-left:55px;">  Taxable</p>
-              <p><input type="radio" name="radio" value="no-taxable" onclick="hideAllSelect()" style="margin-left:70px;"> None-Taxable </p><br><br>
+              <input type="radio"  name="radio" value="taxable" onclick="showAllSelect()" style="margin-left:95px;">  Taxable</p>
+              <p><input type="radio" name="radio" value="no-taxable" onclick="hideAllSelect()" style="margin-left:62px;"> None-Taxable </p><br><br>
             </div>
 
             <div class="row">
@@ -240,7 +240,7 @@
             
                 <div id="select1_div" style="display: none;">
                   <label for="select1">Intra-State TAX</label>
-                  <select name="intra" class="form-control " id="select1">
+                  <select name="intra" class="form-control text-black" id="select1">
                     <option value="GST0[0%]">GST0[0%]</option>
                     <option value="GST3[3%]">GST3[3%]</option>
                     <option value="GST5[5%]">GST5[5%]</option>
@@ -253,7 +253,7 @@
               <div class="col-md-6">
                 <div id="select2_div" style="display: none;">
                   <label for="select2">Inter-State TAX</label>
-                  <select name="inter" class="form-control " id="select2">
+                  <select name="inter" class="form-control text-black" id="select2">
                     <option value="IGST0[0%]">IGST0[0%]</option>
                     <option value="IGST5[5%]">IGST3[3%]</option>
                     <option value="IGST5[5%]">IGST5[5%]</option>
@@ -292,7 +292,7 @@
                     <div class="input-group-prepend">
                       <div class="input-group-text text-white">INR</div>
                     </div>
-                    <input required type="text" name="sel_price" class="form-control">
+                    <input required type="text" name="sel_price" class="form-control text-black">
                   </div>
                 </div>
               </div>
@@ -318,7 +318,7 @@
               <div class="form-group row">
                 <label  class="col-sm-2 col-form-label">Description </label>
                 <div class="col-sm-10 col-md-7 col-9 ml-5">
-                  <input required  type="text" name="sel_desc" class="form-control " >
+                  <input required  type="text" name="sel_desc" class="form-control text-black" >
                 </div>
               </div>
                                     
@@ -332,7 +332,7 @@
                     <div class="input-group-prepend">
                       <div class="input-group-text text-white">INR</div>
                     </div>
-                    <input required type="text" class="form-control" name="cost_price" >
+                    <input required type="text" class="form-control text-black" name="cost_price" >
                   </div>
                 </div>
               </div>
@@ -360,14 +360,14 @@
               <div class="form-group row">
                 <label  class="col-sm-2 col-form-label">Description </label>
                 <div class="col-sm-10 col-md-7 col-9">
-                  <input  type="text" name="cost_desc" class="form-control "  >
+                  <input  type="text" name="cost_desc" class="form-control text-black"  >
                 </div>
               </div>
             </div>
             <div class="form-group row mt-1">
               <label  class="col-sm-2 col-form-label">Minimum Stock to maintain </label>
               <div class="col-sm-10 col-md-7 col-9">
-                <input  type="text" name="minimum_stock" class="form-control" style="width: 680px;" >
+                <input  type="text" name="minimum_stock" class="form-control text-black" style="width: 680px;" >
               </div>
             </div>
             <fieldset class="form-group">
@@ -400,7 +400,7 @@
                     <div class="form-group row" >
                       <label class="col-sm-2 col-form-label">Inventory Account *</label>
                       <div class="col-sm-10 col-md-7 col-9" style="margin-left: -1rem;">
-                        <select class="form-select form-select-sm mt-3" name="invacc">
+                        <select class="form-select form-select-sm mt-3 text-black" name="invacc">
                           <option>Choose..</option>
                           <option value="inventory assets">Inventory Asset</option>
                         </select>
@@ -409,13 +409,13 @@
                     <div class="form-group row ">
                       <label class="col-sm-2 col-form-label">Opening Stock</label>
                       <div class=" col-md-5">
-                        <input  type="number" class="form-control  "  name="openstock" value="0">
+                        <input  type="number" class="form-control text-black"  name="openstock" value="0">
                       </div>
                       <div class="col-md-5  ">
                         <div class="row align-items-center">
                           <label class="col-sm-6 col-form-label">Opening Stock Rate per Unit</label>
                           <div class="col-sm-6">
-                            <input type="number" class="form-control" name="inventoryaccntperunit"  value="0">
+                            <input type="number" class="form-control text-black" name="inventoryaccntperunit"  value="0">
                           </div>
 
                         </div>
@@ -459,12 +459,12 @@
             <button type="button" class="mr-3 btn btn-secondary " onclick="resetForm()" value="Cancel" style="margin-left:10px;">Cancel</button>
           </div>
         </form>
-      </div>
+      
     </div>
   </div>
   
  </section>
-
+</div>
  <script>
   function resetForm() {
     document.getElementById("Form").reset();

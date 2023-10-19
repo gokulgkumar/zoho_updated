@@ -67,7 +67,7 @@ class AddItem(models.Model):
     unit=models.ForeignKey(Unit,on_delete=models.CASCADE)
     hsn=models.IntegerField(null=True,blank=True)
     sales=models.ForeignKey(Sales,on_delete=models.CASCADE)
-
+    minimum_stock=models.IntegerField(blank=True,null=True)
     purchase=models.ForeignKey(Purchase,on_delete=models.CASCADE)
     date=models.DateTimeField(auto_now_add=True)
     s_desc=models.TextField(max_length=255)

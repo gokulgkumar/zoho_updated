@@ -88,22 +88,22 @@
         <h3>All Items</h3>
       </div>
       <div class="searchbar" style="display: flex;">
-        <input type="text" id="searchInput" class="form-control bg-dark" placeholder="Search Items..."
-          style="color: rgb(255, 255, 255);background: transparent;margin-right: 5px; border: 2px solid rgb(214, 141, 5);">
+        <input type="text" id="searchInput" class="form-control bg-white" placeholder="Search Items..."
+          style="color: rgb(255, 255, 255);background: transparent;margin-right: 5px; ">
         
 
       </div>
       <hr>
-      <table class="table table-borderless" id="mytable">
+      <table class="table table-borderless" id="mytable" >
         <thead>
-          <tr>
+          <tr style="text-align: center;">
             <th style="color: rgb(214, 141, 5);">Name</th>
-            <th style="color: rgb(214, 141, 5);">Quantity</th>
+            <th style="color: rgb(214, 141, 5);" >Quantity</th>
           </tr>
         </thead>
         <tbody id="tableBody">
           {% for v in allproduct %}
-          <tr>
+          <tr style="text-align:center">
 
           
                   <td><a class="text-white" href="{% url 'transaction' v.id %}">{{ v.Name }}</a></td>
@@ -117,26 +117,28 @@
 
 
 
-    <div class="overview col-9 col-lg-9 col-md-10  col-sm-10 py-2" style="background-color: black; max-height: 100vw;">
+    <div class="overview col-9 col-lg-9 col-md-10  col-sm-10 py-2" style="background-color:#191C24; max-height: 100vw; border-radius: 10px;">
     <!-- <div class="col-md-9" style="margin-left: 21rem;" data-spy="scroll" data-target="#navbar-example2" data-offset="0"> -->
           <div class="row" style="position: relative;">
             <div class="container">
-              <div class="row" style="margin-top: 4.2rem;">
-                <div class="col" style="margin-top: -4.2rem;">
+              <div class="row" style="margin-top: 2.6rem;">
+                <div class="col " style="margin-top: -4.2rem;padding-right: 150px;">
                   <a class="" style="font-size: 1.5rem; margin-left: 4rem; margin-top: -2rem; color: rgb(214, 141, 5);">
                     <h3>{{ product.Name }}</h3>
                   </a>
-                  <hr>
+                  <hr style="width: 72rem;">
                   <p style="margin-top: 1.5rem; color: rgb(214, 141, 5);">SALE PRICE </p>
-                  <p style="margin-top: -2.2rem; margin-left: 8rem; color: #01F9C6;">: {{ product.s_price }}(incl)</p>
+                  <p style="margin-top: -2.2rem; margin-left: 13rem; color: #01F9C6;">: {{ product.s_price }}(incl)</p>
                   <p style="margin-top: -1rem; color: rgb(214, 141, 5);">PURCHASE PRICE </p>
-                  <p style="margin-top: -2.3rem; margin-left: 8rem; color: #01F9C6;">: {{ product.p_price }}(excl)</p>
-                  <p style="margin-top: -3.9rem; margin-left: 40rem; color: rgb(214, 141, 5);">STOCK QUANTITY </p>
-                  <p style="margin-top: -2.2rem; margin-left: 48rem; color: #01F9C6;">: {{ product.stock }}</p>
-                  <p style="margin-top: -1rem; margin-left: 40rem; color: rgb(214, 141, 5);">STOCK VALUE </p>
-                  <p style="margin-top: -2.3rem; margin-left: 48rem; color: #01F9C6;">: {{ stock }}</p>
+                  <p style="margin-top: -2.3rem; margin-left: 13rem; color: #01F9C6;">: {{ product.p_price }}(excl)</p>
+                  <p style="margin-top: -1rem; color: rgb(214, 141, 5);">MINIMUM STOCK TO MAINTAIN </p>
+                  <p style="margin-top: -2.3rem; margin-left: 13rem; color: #01F9C6;">: {{ product.minimum_stock }} </p>
+                  <p style="margin-top: -3.9rem; margin-left: 52rem; color: rgb(214, 141, 5);">STOCK QUANTITY </p>
+                  <p style="margin-top: -2.3rem; margin-left: 60rem; color: #01F9C6;">: {{ product.stock }}</p>
+                  <p style="margin-top: -1rem; margin-left: 52rem; color: rgb(214, 141, 5);">STOCK VALUE </p>
+                  <p style="margin-top: -2.3rem; margin-left: 60rem; color: #01F9C6;">: {{ stock }}</p>
                 </div>
-                <hr>
+                <hr style="width: 72.5rem;">
               </div>
             </div>
           </div>
@@ -169,7 +171,7 @@
                     <div class="filter-dropdown">
                       <select class="filter-option">
                         <option value="contains">Contains</option>
-                        <option value="exact-match">Excat Match</option>
+                        <option value="exact-match">Exact Match</option>
                       </select><br>
                       <input type="text" class="filter-value"><br>
                       <button class="apply-filter btn-primary">Apply</button>
@@ -181,7 +183,7 @@
                     <div class="filter-dropdown">
                       <select class="filter-option">
                         <option value="contains">Contains</option>
-                        <option value="exact-match">Excat Match</option>
+                        <option value="exact-match">Exact Match</option>
                       </select><br>
                       <input type="text" class="filter-value"><br>
                       <button class="apply-filter btn-primary">Apply</button>
@@ -193,7 +195,7 @@
                     <div class="filter-dropdown">
                       <select class="filter-option">
                         <option value="contains">Contains</option>
-                        <option value="exact-match">Excat Match</option>
+                        <option value="exact-match">Exact Match</option>
                       </select><br>
                       <input type="text" class="filter-value"><br>
                       <button class="apply-filter btn-primary">Apply</button>
@@ -205,7 +207,7 @@
                     <div class="filter-dropdown">
                       <select class="filter-option">
                         <option value="contains">Contains</option>
-                        <option value="exact-match">Excat Match</option>
+                        <option value="exact-match">Exact Match</option>
                       </select><br>
                       <input type="text" class="filter-value"><br>
                       <button class="apply-filter btn-primary">Apply</button>
@@ -217,7 +219,7 @@
                     <div class="filter-dropdown">
                       <select class="filter-option">
                         <option value="contains">Contains</option>
-                        <option value="exact-match">Excat Match</option>
+                        <option value="exact-match">Exact Match</option>
                       </select><br>
                       <input type="text" class="filter-value"><br>
                       <button class="apply-filter btn-primary">Apply</button>

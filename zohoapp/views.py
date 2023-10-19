@@ -490,6 +490,7 @@ def add(request):
                 cost_price=request.POST.get('cost_price')
                 cost_acc=request.POST.get('cost_acc')      
                 p_desc=request.POST.get('cost_desc')
+                min_stock=request.POST.get('minimum_stock')
                 tax=request.POST.get('radio')
                 u=request.user.id
                 us=request.user
@@ -507,6 +508,7 @@ def add(request):
                                 Name=name,
                                 p_desc=p_desc,
                                 s_desc=s_desc,
+                                minimum_stock=min_stock,
                                 s_price=sel_price,
                                 p_price=cost_price,
                                 tax=tax,
@@ -537,6 +539,7 @@ def add(request):
                 cost_price=request.POST.get('cost_price')
                 cost_acc=request.POST.get('cost_acc')      
                 p_desc=request.POST.get('cost_desc')
+                min_stock=request.POST.get('minimum_stock')
                 tax=request.POST.get('radio')
                 status=request.POST.get('status')
                 u=request.user.id
@@ -553,6 +556,7 @@ def add(request):
                                 hsn=hsn,
                                 p_desc=p_desc,
                                 s_desc=s_desc,
+                                minimum_stock=min_stock,
                                 s_price=sel_price,
                                 p_price=cost_price,
                                 unit=unit,
@@ -17404,3 +17408,13 @@ def terms_dropdowns(request):
 
 
 
+def item_statuschange(request,id):
+    item=AddItem.objects.get(id=id)
+    if item.satus == 'Active':
+        item.satus = 'Inactive'
+        item.save()
+    else:
+        item.satus = 'Inactive'
+        item.satus = 'Active'
+        item.save()
+    return redirect('detail',item.id)

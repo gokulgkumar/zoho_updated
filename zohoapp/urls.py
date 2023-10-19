@@ -838,6 +838,8 @@ urlpatterns = [
     path('customer_purchase_sort/<int:b_id>',views.customer_purchase_sort,name='customer_purchase_sort'),
     path('purchase_bill_save/<int:b_id>',views.purchase_bill_save,name='purchase_bill_save'),
     path('purchase_bill_draft/<int:b_id>',views.purchase_bill_draft,name='purchase_bill_draft'),
+
+    path('item_statuschange/<int:id>',views.item_statuschange,name='item_statuschange'),
     
     path('terms_dropdowns',views.terms_dropdowns,name='terms_dropdowns'),
 
