@@ -4977,7 +4977,7 @@ def create_recurring_bills(request):
         v_gst_no=request.POST.get('gstin_inp')   # haripriya add
         src_supply = request.POST.get('srcofsupply')
         prof = request.POST['prof_name']
-        repeat = request.POST['repeats']
+        repeat = request.POST['repeat']
         start = request.POST.get('start_date')
         end = None if request.POST.get('end_date') == "" else  request.POST.get('end_date')
         pay_term =request.POST['terms']

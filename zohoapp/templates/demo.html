@@ -60,7 +60,7 @@
 
       <!-- style="display: flex;" -->
       <div class="searchbar" >
-        <input type="text" id="searchInput" class="form-control bg-white" placeholder="Search Items..."
+        <input type="text" id="searchInput" class="form-control text-dark bg-white" placeholder="Search Items..."
           style="color: rgb(255, 255, 255);background: transparent;margin-right: 5px;">
 
         <a class="btn btn-outline-warning mx-2 mt-2 p-2 px-4" href="" data-bs-toggle="dropdown" aria-haspopup="true"
@@ -73,7 +73,7 @@
           <a class="dropdown-item" href="{% url 'sort_product_hsn' product.id %}" data-sort="hsn">HSN Number</a>
           <a class="dropdown-item" href="{% url 'sort_product_name' product.id %}" data-sort="name">Name </a>
         </div>
-        <a class="btn btn-outline-warning mr-1 p-2 px-4 mt-2" href="{% url 'additem' %}" style="margin-left: 190px;" ><i class="fa fa-plus" ></i><span>New</span></a>
+        <a class="btn btn-outline-warning  p-2 px-4 " href="{% url 'additem' %}" style="margin-left: 260px;margin-top: -59px;" ><i class="fa fa-plus" ></i><span>New</span></a>
 
       </div>
       
@@ -211,18 +211,18 @@
               <h6 style="margin-top: -1.6rem; margin-left: 9.5rem; margin-bottom: 2rem; font-size: 15px;">
                 : {{product.stock}}</h6>
 
-              <h6 style="margin-top: -6.5rem; margin-left: 57rem;"><b>Cost price </b></h6> <br>
-              <h6 style="margin-top: -3.25rem; margin-left: 62rem; font-size: 18px;">
+              <h6 style="margin-top: -6.5rem; margin-left: 48rem;"><b>Cost price </b></h6> <br>
+              <h6 style="margin-top: -3.25rem; margin-left: 55rem; font-size: 18px;">
                 :<li class="fa fa-rupee" style="margin-left: 5px;">&nbsp;<b >{{product.p_price}}</b></li>
               </h6> <br>
 
-              <h6 style="margin-top: -1.5rem; margin-left: 56rem;"><b>Selling price </b></h6> <br>
-              <h6 style="margin-top: -3.3rem; margin-left: 62rem;  font-size: 18px;">
+              <h6 style="margin-top: -1.5rem; margin-left: 48rem;"><b>Selling price </b></h6> <br>
+              <h6 style="margin-top: -3.3rem; margin-left: 55rem;  font-size: 18px;">
                 :<li class="fa fa-rupee"  style="margin-left: 5px;">&nbsp;<b>{{product.s_price}}</b></li>
               </h6> <br>
 
-              <h6 style="margin-top: -1.5rem; margin-left: 56rem;"><b>Stock Value </b></h6>
-              <h6 style="margin-top: -1.8rem; margin-left: 62rem; margin-bottom: 3.5rem; font-size: 20px;">
+              <h6 style="margin-top: -1.5rem; margin-left: 48rem;"><b>Stock Value </b></h6>
+              <h6 style="margin-top: -1.8rem; margin-left: 55rem; margin-bottom: 3.5rem; font-size: 20px;">
                 : <li class="fa fa-rupee"  style="margin-left: 5px;">&nbsp;<b>{{ stock }}</b></li>
               </h6>
 
@@ -260,7 +260,7 @@
 
             <div>
               <div class="card"
-                style="margin-left:625px;width:550px;height: auto; margin-top:-35rem; background-color: rgb(110, 61, 46);">
+                style="margin-left:590px;width:550px;height: auto; margin-top:-35rem; background-color: rgb(110, 61, 46);">
                 <div class="card-body" style="color:White;">
                   <h4 class="text-center">PURCHASE DETAILS</h4>
                   <hr>

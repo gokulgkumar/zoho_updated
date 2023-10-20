@@ -83,12 +83,12 @@
 </style>
 <section>
   <div class="row p-3">
-    <div class="list col-4 col-lg-3 col-md-2  col-sm-2 py-3">
+    <div class="list col-4 col-lg-3 col-md-2  col-sm-2 py-3" style="border-right:1px solid white;">
       <div class="header ">
         <h3>All Items</h3>
       </div>
       <div class="searchbar" style="display: flex;">
-        <input type="text" id="searchInput" class="form-control bg-white" placeholder="Search Items..."
+        <input type="text" id="searchInput" class="form-control bg-white text-black" placeholder="Search Items..."
           style="color: rgb(255, 255, 255);background: transparent;margin-right: 5px; ">
         
 
@@ -116,8 +116,7 @@
     </div>
 
 
-
-    <div class="overview col-9 col-lg-9 col-md-10  col-sm-10 py-2" style="background-color:#191C24; max-height: 100vw; border-radius: 10px;">
+    <div class="overview col-9 col-lg-9 col-md-10  col-sm-10 py-2" style="background-color:#191C24; max-height: 100vw; border-radius: 10px; ">
     <!-- <div class="col-md-9" style="margin-left: 21rem;" data-spy="scroll" data-target="#navbar-example2" data-offset="0"> -->
           <div class="row" style="position: relative;">
             <div class="container">
@@ -133,10 +132,10 @@
                   <p style="margin-top: -2.3rem; margin-left: 13rem; color: #01F9C6;">: {{ product.p_price }}(excl)</p>
                   <p style="margin-top: -1rem; color: rgb(214, 141, 5);">MINIMUM STOCK TO MAINTAIN </p>
                   <p style="margin-top: -2.3rem; margin-left: 13rem; color: #01F9C6;">: {{ product.minimum_stock }} </p>
-                  <p style="margin-top: -3.9rem; margin-left: 52rem; color: rgb(214, 141, 5);">STOCK QUANTITY </p>
-                  <p style="margin-top: -2.3rem; margin-left: 60rem; color: #01F9C6;">: {{ product.stock }}</p>
-                  <p style="margin-top: -1rem; margin-left: 52rem; color: rgb(214, 141, 5);">STOCK VALUE </p>
-                  <p style="margin-top: -2.3rem; margin-left: 60rem; color: #01F9C6;">: {{ stock }}</p>
+                  <p style="margin-top: -3.9rem; margin-left: 46rem; color: rgb(214, 141, 5);">STOCK QUANTITY </p>
+                  <p style="margin-top: -2.3rem; margin-left: 57rem; color: #01F9C6;">: {{ product.stock }}</p>
+                  <p style="margin-top: -1rem; margin-left: 46rem; color: rgb(214, 141, 5);">STOCK VALUE </p>
+                  <p style="margin-top: -2.3rem; margin-left: 57rem; color: #01F9C6;">: {{ stock }}</p>
                 </div>
                 <hr style="width: 72.5rem;">
               </div>
@@ -228,7 +227,7 @@
                   </th>
                 </tr>
               </thead>
-              <tbody id="tableBody">
+              <tbody id="tableBody2">
                 {% for v in estimate %}
                 <tr>
                   <td>Estimate</td>
@@ -236,7 +235,7 @@
                   <td>{{ v.estimate.estimate_date }}</td>
                   <td>{{ v.quantity }}</td>
                   <td>{{ v.rate }}</td>
-                  <td>{{ v.status }}</td>
+                  <td>{{ v.estimate.status }}</td>
 
                   <td>{{ product.status }}</td>
                 {% endfor %}
@@ -249,7 +248,7 @@
                   <td>{{ s.sale.sales_date }}</td>
                   <td>{{ s.quantity }}</td>
                   <td>{{ s.rate }}</td>
-                  <td>{{ s.status }}</td>
+                  <td>{{ s.sale.status }}</td>
                 {% endfor %}
                 </tr>
                 
@@ -260,7 +259,7 @@
                   <td>{{ r.ri.start }}</td>
                   <td>{{ r.quantity }}</td>
                   <td>{{ r.rate }}</td>
-                  <td>{{ r.status }}</td>
+                  <td>{{ r.ri.status }}</td>
                 {% endfor %}
                 </tr>
 
@@ -271,7 +270,7 @@
                   <td>{{ p.PO.Ord_date }}</td>
                   <td>{{ p.quantity }}</td>
                   <td>{{ p.rate }}</td>
-                  <td>{{ p.status }}</td>
+                  <td>{{ p.PO.status }}</td>
                 {% endfor %}
                 </tr>
 
@@ -342,7 +341,7 @@
 <script>
   function applyFilter() {
     var selectedType = document.getElementById('type-filter').value;
-    var tableRows = document.querySelectorAll("#tableBody tr");
+    var tableRows = document.querySelectorAll("#tableBody2 tr");
   
     tableRows.forEach(function(row) {
       var typeColumn = row.querySelector("td:first-child").textContent;
