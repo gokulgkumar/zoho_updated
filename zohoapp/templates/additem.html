@@ -155,7 +155,7 @@
 <div>
 <section style="height: 1200px; overflow-y: auto;">
   
-  <div class="row  container" style="top: 5rem;border-radius: 10px;background-color: #191C24;margin-left: 150px;" >
+  <div class="row  container-fluid" style="top: 5rem;border-radius: 10px;background-color: #191C24;" >
     
     <div class="col-md-12 " style="width: 100%;">
         <h3  class="mb-3  text-white  mt-4" style="font-size: 2rem;">New item</h3>     
@@ -188,15 +188,18 @@
             </div>
             <div class="form-group row">
               <label class="col-sm-2 col-form-label">Unit <i class="fa fa-question-circle"></i></label>
-              <div class="col-sm-10 col-md-7 col-9" style="margin-left: -2.2rem; width: 689px;">
-                  <select name="unit" class="form-control text-black" id="unit">
-                      {% for u in unit %}
-                      <option value="{{u.id}}">{{u.unit}}</option>
-                      {% endfor %}
-                  </select>
+              <div class="col-sm-10 col-md-7 col-9" style="margin-left: -2.2rem;">
+                  <div class="d-flex align-items-center">
+                      <select name="unit" class="form-control text-black" id="unit" style="width: 100%;">
+                          {% for u in unit %}
+                          <option value="{{u.id}}">{{u.unit}}</option>
+                          {% endfor %}
+                      </select>
+                      <button style="width: 2.5rem; background-color: chocolate; color: black; border-radius: 3px; margin-left: 10px;" class="open-button" onclick="openForm()">+</button>
+                  </div>
               </div>
-              <button style="width: 2.5rem;background-color: chocolate; color: black;border-radius: 3px;" class="open-button" onclick="openForm()">+</button>
           </div>
+          
 
             <div class="form-group row">
               <label  class="col-sm-2 col-form-label">HSN Code</label> 
@@ -339,22 +342,23 @@
               <div class="form-group row in">
                 <label class="col-sm-2 col-form-label">Account *</label>
                 <div class="col-sm-10 col-md-7 col-5">
-                  <select name="cost_acc" class="form-control text-black" id="myaccount" style="width: 295px;">
-                    {% for account_type in account_types %}
-                    <option value="" disabled class="btn btn-dark text-light highlight-account-type"><b>{{ account_type }}</b></option>
-                    {% for account in accounts %}
-                    {% if account.Account_type == account_type %}
-                    <option value="{{account.id}}">{{ account.Account_name }}</option>
-                    
-                    {% endif %}
-                    {% endfor %}
-                    {% endfor %}
-                  </select>             
-
-                  </div>
-                <button id="showFormButton" style="width: 2.5rem;background-color: chocolate; color: black;border-radius: 3px;margin-left: -53px;" class="openbutton" onclick="showForm()">+</button>
-              </div>
-              
+                    <div class="d-flex align-items-center">
+                        <select name="cost_acc" class="form-control text-black" id="myaccount" >
+                            {% for account_type in account_types %}
+                            <option value="" disabled class="btn btn-dark text-light highlight-account-type"><b>{{ account_type }}</b></option>
+                            {% for account in accounts %}
+                            {% if account.Account_type == account_type %}
+                            <option value="{{account.id}}">{{ account.Account_name }}</option>
+                            {% endif %}
+                            {% endfor %}
+                            {% endfor %}
+                        </select>
+                        <button id="showFormButton" style="width: 40px; background-color: chocolate; color: black; border-radius: 3px; margin-left: 10px;" class="openbutton" onclick="showForm()">+</button>
+                    </div>
+                </div>
+            </div>
+            
+            
 
 
               <div class="form-group row">

@@ -59,23 +59,31 @@
       </div>
 
       <!-- style="display: flex;" -->
-      <div class="searchbar" >
+      <div class="searchbar">
         <input type="text" id="searchInput" class="form-control text-dark bg-white" placeholder="Search Items..."
-          style="color: rgb(255, 255, 255);background: transparent;margin-right: 5px;">
-
-        <a class="btn btn-outline-warning mx-2 mt-2 p-2 px-4" href="" data-bs-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false" role="button">
-          <i class="fa fa-filter "></i>
-
-        </a>
-        <div class="dropdown-menu ">
-          <a class="dropdown-item" href="#" data-sort="all">All</a>
-          <a class="dropdown-item" href="{% url 'sort_product_hsn' product.id %}" data-sort="hsn">HSN Number</a>
-          <a class="dropdown-item" href="{% url 'sort_product_name' product.id %}" data-sort="name">Name </a>
+               style="color: rgb(255, 255, 255); background: transparent; margin-right: 5px;">
+        
+        <div class="row">
+            <div class="col-md-4">
+                <a class="btn btn-outline-warning mt-2 p-2" href="" data-bs-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false" role="button" style="width: 60px;">
+                    <i class="fa fa-filter "></i>
+                </a>
+                <div class="dropdown-menu ">
+                  <a class="dropdown-item" href="#" data-sort="all">All</a>
+                  <a class="dropdown-item" href="{% url 'sort_product_hsn' product.id %}" data-sort="hsn">HSN Number</a>
+                  <a class="dropdown-item" href="{% url 'sort_product_name' product.id %}" data-sort="name">Name </a>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4" style="text-align: right;">
+                <a class="btn btn-outline-warning p-2 " href="{% url 'additem' %}" style="margin-top: 8px;">
+                    <i class="fa fa-plus"></i><span>New</span>
+                </a>
+            </div>
         </div>
-        <a class="btn btn-outline-warning  p-2 px-4 " href="{% url 'additem' %}" style="margin-left: 260px;margin-top: -59px;" ><i class="fa fa-plus" ></i><span>New</span></a>
-
-      </div>
+    </div>
+    
       
       <table class="table table-borderless mt-3" id="mytable">
         <thead>
@@ -195,7 +203,7 @@
 
        <div class="mt-4" style="overflow-y: auto; height: 520px;">
         <div class="  " >
-          <div class="card text-black py-0" style="width: 62vw; background: #ffddb0;margin-left: -1rem;">
+          <div class="card text-black py-0" style="width: 65vw; background: #ffddb0;margin-left: -1rem;">
             <div class="card-body" style="margin-left: 20px;">
               <h2 class="text-center" style="margin-top: 7rem;">{{product.Name}}</h2>
               <hr>
@@ -211,18 +219,18 @@
               <h6 style="margin-top: -1.6rem; margin-left: 9.5rem; margin-bottom: 2rem; font-size: 15px;">
                 : {{product.stock}}</h6>
 
-              <h6 style="margin-top: -6.5rem; margin-left: 48rem;"><b>Cost price </b></h6> <br>
-              <h6 style="margin-top: -3.25rem; margin-left: 55rem; font-size: 18px;">
+              <h6 style="margin-top: -6.5rem; margin-left: 42rem;"><b>Cost price </b></h6> <br>
+              <h6 style="margin-top: -3.25rem; margin-left: 49rem; font-size: 18px;">
                 :<li class="fa fa-rupee" style="margin-left: 5px;">&nbsp;<b >{{product.p_price}}</b></li>
               </h6> <br>
 
-              <h6 style="margin-top: -1.5rem; margin-left: 48rem;"><b>Selling price </b></h6> <br>
-              <h6 style="margin-top: -3.3rem; margin-left: 55rem;  font-size: 18px;">
+              <h6 style="margin-top: -1.5rem; margin-left: 42rem;"><b>Selling price </b></h6> <br>
+              <h6 style="margin-top: -3.3rem; margin-left: 49rem;  font-size: 18px;">
                 :<li class="fa fa-rupee"  style="margin-left: 5px;">&nbsp;<b>{{product.s_price}}</b></li>
               </h6> <br>
 
-              <h6 style="margin-top: -1.5rem; margin-left: 48rem;"><b>Stock Value </b></h6>
-              <h6 style="margin-top: -1.8rem; margin-left: 55rem; margin-bottom: 3.5rem; font-size: 20px;">
+              <h6 style="margin-top: -1.6rem; margin-left: 42rem;"><b>Stock Value </b></h6>
+              <h6 style="margin-top: -1.8rem; margin-left: 49rem; margin-bottom: 3.5rem; font-size: 18px;">
                 : <li class="fa fa-rupee"  style="margin-left: 5px;">&nbsp;<b>{{ stock }}</b></li>
               </h6>
 
@@ -260,7 +268,7 @@
 
             <div>
               <div class="card"
-                style="margin-left:590px;width:550px;height: auto; margin-top:-35rem; background-color: rgb(110, 61, 46);">
+                style="margin-left:35rem;width:26vw;height: auto; margin-top:-35rem; background-color: rgb(110, 61, 46);">
                 <div class="card-body" style="color:White;">
                   <h4 class="text-center">PURCHASE DETAILS</h4>
                   <hr>
@@ -289,251 +297,6 @@
     </div>
   </div>
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="nav-item" style="height:2vh; width:4vw; margin-left: 96.8%;">
-    <button type="button" onclick="history.go(-1);" style="height:5vh; width:2.5vw;">&times;</button>
-  </div>
-  <div class="container-fluid" style="background: black; width:90vw; margin-left:-5rem;margin-top: 2rem; height: 245vh;">
-    <div class="col-md-12" style="right:0;">
-      <div class="row">
-         
-        <div class="col-md-3" style="border-right: 1px solid white; height: 250vh; position: absolute; z-index:99; margin-top:-3rem;">
-          <div class="row">
-            <div class="col-md-4"><a class="text-white" style="font-size: 1.5rem;">All Items</a></div>
-              <div class="col-md-4 " style="margin-left: 18rem; margin-top: -1.9rem; ">
-                <a style="color: black; margin-top: 5rem; background: #FFCFB0;" class="btn btn-secondary" href="{% url 'additem' %}">New</a>
-                <div class="col-md-4 form-inline" style="margin-left: -5rem; margin-top: -1.8rem;">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" Style="background: #FFCFB0;">
-                      Filter
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="filterButton">
-                      <a class="dropdown-item" href="#" data-sort="name">Name</a>
-                      <a class="dropdown-item" href="#" data-sort="hsn">HSN Number</a>
-                      <a class="dropdown-item" href="#" data-sort="all">All</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <input type="text" id="searchInput" class="form-control bg-dark" placeholder="Search Items..." style="margin-top: -2.2rem; width: 50%; margin-left: 1rem;">
-            <div id="tableContainer" style="margin-top: -0.5rem;">
-              <table class="table text-white" style="margin-top: 1.9rem;" id="dataTable">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>HSN</th>
-                  </tr>
-                </thead>
-                <tbody id="tableBody">
-                  {% for v in allproduct %}
-                  <tr>
-            
-                    <td><a class="text-white" href="{% url 'detail' v.id %}">{{v.Name}}</a></td>
-                    <td><a class="text-white" href="{% url 'detail' v.id %}">{{v.hsn}}</a></td>
-            
-                  </tr>
-                  {% endfor %}
-                </tbody>
-              </table>
-            </div> 
-          </div> -->
-
-
-<!-- 
-
-          <div class="col-md-12" style="margin-left: 24rem;"  data-spy="scroll" data-target="#navbar-example2" data-offset="0">
-            <div class="row" style="position: relative;">
-              <div class="col-md-12" >
-                <a class="text-white" style="font-size: 1.5rem; margin-left:4rem;"><h3>{{product.Name}}</h3></a>
-                {%  if product.satus == 'active' %}
-                <button class="btn btn-dark text-white mt-2" style="border: 2px solid green;"  >{{product.satus}}</button>
-                {% else %}
-                  <button class="btn btn-dark text-white mt-3" style="border: 2px solid red;"  >{{product.satus}}</button>
-                {% endif %}
-              </div>
-              <div class="col-md-4 " style="margin-top: 1rem; z-index:9;">
-                <a href="{% url 'transaction' product.id %}" style= "font-size: 18px; width: 8.6rem; height: 1.9rem; background-color: #FFCFB0;;"  class="btn btn-secondary  text-dark">
-                  Transactions
-                </a>
-              </div>
-
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-6" style="margin-top: 2rem;">
-                    <a style="color: #e0e0e0; width: 3rem; height: 2rem; margin-top: 2.3rem; margin-left: 43rem; background: #FFCFB0;" class="btn btn-secondary text-dark" onclick="location.href ='{% url 'edititem' product.id %}'">
-                      <i class="fa fa-solid fa-pencil "></i>
-                    </a>
-                  </div>
-                </div>      
-                    
-                <div class="col-md-4 " style="margin-top:-2rem;position: relative;z-index:9; ">
-                  <input type="file" id="attachment" style="display: none;">
-                  <button onclick="document.getElementById('attachment').click();" id="comment-box" style= "font-size: 18px;margin-left: 46.4rem; width: 3rem; height: 2rem; background: #FFCFB0;"  class="btn btn-secondary text-dark">
-                    <i class="fa fa-solid fa-file"></i>
-                  </button>
-                  <a href="{% url 'cleer' product.id %}" style="color: #ccc;height: 2rem;margin-top: -3.7rem;margin-left: 49.8rem; font-size: 18px; background: #FFCFB0;"  class="btn btn-secondary  text-dark " >
-                    <i class="fa fa-solid fa-trash"></i>
-                  </a>
-                </div>
-            
-                <div class="toggle2">
-                  <button onclick="toggleModal()" style="margin-top: -6.7rem; font-size: 18px; margin-left: 53rem; background: #FFCFB0;" class="btn btn-secondary text-dark">
-                    <i class="fa fa-solid fa-comment"></i>
-                  </button>
-                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              </div>
-            </div>
-
-            <hr>
-
-            <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Add Comment</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <form id="commentForm" method="post" action="{% url 'commentdb' product.id %}">
-                      {% csrf_token %}
-                      <div class="form-group">
-                        <label for="commentInput">Comment:</label>
-                        <textarea class="form-control bg-white text-dark" id="commentInput" name="comment" rows="3" style="height: 80px;"></textarea>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" id="submitCommentBtn" onclick="submitComment()">Submit</button>
-                      </div>
-                      <div class="container-fluid">
-                        <table class="table table-responsive-md mt-4 table text-white">
-                          <thead>
-                            <tr>
-                              <th>sl no.</th>
-                              <th>Comments</th>
-                              <th>Delete</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {% for com in comments %}
-                            <tr class="table-row">
-                              <td>{{ forloop.counter }}</td>
-                              <td>{{ com.content }}</td>  
-                              <td><a href="{% url 'delete_comment' product.id com.id %}">Delete</a></td>
-                            </tr>
-                            {% endfor %}
-                          </tbody>
-                        </table>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-sm-9"> 
-              <div class="card text-black" style=" margin-bottom:30px; width: 60vw; background: #FFE7C7;">
-                <div class="card-body">
-                  <h2 class="text-center" style="margin-top: 7rem;" >{{product.Name}}</h2> <hr>
-
-                  <h6 style="margin-top: -10.3rem;">Date :</h6>
-                  <h6 style="margin-top: -1.6rem; margin-left: 9.5rem; margin-bottom: 2rem;">{{product.date}}</h6> <br>
-
-                  <h6 style="margin-top: -2.9rem;">HSN Code :</h6>
-                  <h6 style="margin-top: -1.6rem; margin-left: 9.5rem; margin-bottom: 2rem; font-size: 15px;">{{product.hsn}}</h6> 
-
-                  <h6 style="margin-top: -1.6rem;">Stock on Inventory :</h6>
-                  <h6 style="margin-top: -1.6rem; margin-left: 9.5rem; margin-bottom: 2rem; font-size: 15px;">{{product.stock}}</h6> 
-
-                  <h6 style="margin-top: -6.5rem; margin-left: 38rem;"><b>Cost price :</b></h6> <br>
-                  <h6 style="margin-top: -3.25rem; margin-left: 45rem; font-size: 18px;" ><li class="fa fa-rupee">&nbsp;<b>{{product.p_price}}</b></li></h6> <br>
-
-                  <h6 style="margin-top: -1.5rem; margin-left: 38rem;"><b>Selling  price :</b></h6> <br>
-                  <h6 style="margin-top: -3.3rem; margin-left: 45rem;  font-size: 18px;" ><li class="fa fa-rupee">&nbsp;<b>{{product.s_price}}</b></li></h6> <br>
-
-                  <h6 style="margin-top: -1.5rem; margin-left: 38rem;"><b>Stock Value :</b></h6>
-                  <h6 style="margin-top: -1.6rem; margin-left: 45rem; margin-bottom: 3.5rem; font-size: 20px;"><li class="fa fa-rupee">&nbsp;<b>{{ stock }}</b></li></h6>
-
-                  <h5 style="margin-top: 7rem;">Account Type :</h5>
-                  <h6 style="margin-top: -1.6rem; margin-left: 13rem; margin-bottom: 2rem;" >{{product.type}}</h6> 
-              
-                  <h5 class="mr-5">Unit :</h5>
-                  <h6 style="margin-top: -1.6rem; margin-left: 13rem; margin-bottom: 2rem;" >{{product.unit.unit}}</h6> 
-              
-                  <h6 class="mr-4 ">Created Source :</h6>
-                  <h6 style="margin-top: -1.6rem; margin-left: 13rem; margin-bottom: 2rem;"  >{{product.user.username}}</h6> 
-
-                  <h6 sclass="mr-4 ">HSN Code :</h6>
-                  <h6 style="margin-top: -1.6rem; margin-left: 13rem; margin-bottom: 2rem;"  >{{product.hsn}}</h6> 
-
-                  <h6 class="mr-4 ">Tax Prefrence :</h6>
-                  <h6 style="margin-top: -1.6rem; margin-left: 13rem; margin-bottom: 2rem;"  >{{product.tax}}</h6> 
-
-                  <h6 class="mr-4 ">Stock on Inventory :</h6>
-                  <h6 style="margin-top: -1.6rem; margin-left: 13rem; margin-bottom: 2rem;"  >{{product.stock}}</h6> 
-
-                  <h6 class="mr-4 ">Cost price :</h6>
-                  <h6 style="margin-top: -1.6rem; margin-left: 13rem; margin-bottom: 2rem;" >{{product.p_price}}</h6>
-
-                  <h6 class="mr-5">Purchase Account :</h6>
-                  <h6 style="margin-top: -1.5rem; margin-left: 13rem;" >{{product.purchase.Account_name}}</h6> <br>
-
-                  <h6 class="mr-5">Selling  price :</h6>
-                  <h6 style="margin-top: -1.5rem; margin-left: 13rem;" >{{product.s_price}}</h6> <br>
-
-                  <h6 class="mr-5">Sales  Account :</h6>
-                  <h6 style="margin-top: -1.6rem; margin-left: 13rem;" >{{product.sales.Account_name}}</h6> <br>
-                  
-                </div>
-                    
-                <div> 
-                  <div class="card" style="margin-left:500px;width:350px;height: auto; margin-top:-35rem; background-color:#C88141;">
-                    <div class="card-body" style="color:White;">
-                      <h4>PURCHASE DETAILS</h4>
-                      <hr>
-                      <h6 class="mr-5">Purchase Account &nbsp;&nbsp;&nbsp;&nbsp; </h6>
-                      <h6 style="margin-top: -1.6rem; margin-left: 12rem;" >{{product.purchase.Account_name}}</h6> <br>
-                      <h6 class="mr-5">Description &nbsp;&nbsp;&nbsp;&nbsp; </h6>
-                      <h6 style="margin-top: -1.6rem; margin-left: 12rem;" >{{product.p_desc}}</h6> <br>
-
-                      <h4 style="margin-top: 2rem;">SALES DETAILS</h4><hr>
-                      <h6 class="mr-5">Sales  Account</h6>
-                      <h6 style="margin-top: -1.6rem; margin-left: 12rem;" >{{product.sales.Account_name}}</h6> <br>
-                      <h6 class="mr-5">Description</h6>
-                      <h6 style="margin-top: -1.6rem; margin-left: 12rem;" >{{product.s_desc}}</h6><br>
-                      <h6 class="mr-4 ">Stock on Inventory</h6>
-                      <h6 style="margin-top: -1.6rem; margin-left: 12rem;"  >{{product.stock}}</h6> 
-                      {% comment %} <h6 class="mr-5 " style="margin-top: 2rem;">Stock on Inventory</h6>
-                      <h6 style="margin-top: -1.4rem; margin-left: 13rem; "  >{{product.stock}}</h6> {% endcomment %}
-                    </div>
-                  </div>
-                </div>
-              </div><br><br>
-            </div>
-          </div>  
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-                         -->
-
-
 
 
 
