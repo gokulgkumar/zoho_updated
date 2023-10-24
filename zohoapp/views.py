@@ -17418,3 +17418,8 @@ def item_statuschange(request,id):
         item.satus = 'Active'
         item.save()
     return redirect('detail',item.id)
+
+
+def invoice_details(request):
+    company = company_details.objects.get(user=request.user)
+    return render(request,'invoice_details.html',{'company':company})
