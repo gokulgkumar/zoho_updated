@@ -17422,4 +17422,5 @@ def item_statuschange(request,id):
 
 def invoice_details(request):
     company = company_details.objects.get(user=request.user)
-    return render(request,'invoice_details.html',{'company':company})
+    invoices = invoice.objects.filter(user=request.user)
+    return render(request,'invoice_details.html',{'company':company,'invoice':invoices})

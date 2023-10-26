@@ -83,17 +83,17 @@
 
         }
 
-        tbody tr td{
-        border: 1px solid black;
-        
-    }
+        tbody tr td {
+            border: 1px solid black;
+
+        }
 
         .printable-content,
         .printable-content * {
             visibility: visible;
             color: black !important;
             padding: 10px !important;
-            margin-left: -1.2rem !important;
+            
 
         }
 
@@ -101,7 +101,7 @@
             width: 200%;
             max-width: 100%;
             color: black !important;
-            margin-left: -1.2rem !important;
+            
 
 
         }
@@ -114,12 +114,14 @@
             width: 100%;
             color: black !important;
             padding: 0% !important;
+            margin-left: -6rem !important;
 
         }
+
         .printable-content .search {
-    display: none;
-  }
-  
+            display: none;
+        }
+
 
     }
 </style>
@@ -127,7 +129,16 @@
 <div class="card-body">
     <div class="bar">
         <div class=" left">
-            <div class="px-2">
+
+
+            <div class="date-filter">
+                <label for="FromDate" class="px-2 " >From:</label>
+                <input type="date" id="FromDate" style="border-radius:8px;" class="text-center">
+                <label for="ToDate" class="px-2">To:</label>
+                <input type="date" id="ToDate" style="border-radius:8px;" class="text-center">
+            </div>
+
+            <!-- <div class="px-2">
                 <label style="text-align:left ">From:</label>
                 <input name="FromDate" class="inputdate" type="date" id="in1"
                     style="width: 70%; border-radius: 8px;padding: 5px; border: 3px solid rgb(200, 166, 104);">
@@ -137,7 +148,7 @@
                 <label style="text-align:left ">To:</label>
                 <input name="ToDate" type="date" class="inputdate" id="in2"
                     style="width: 70%; border-radius: 8px;padding: 5px; border: 3px solid rgb(200, 166, 104);">
-            </div>
+            </div> -->
         </div>
         <div class="d-flex">
 
@@ -145,8 +156,8 @@
                    <button class=" btn btn-outline-info"><i class="fa fa-line-chart" style="background: white; color: rgb(218, 164, 48);"></i>
              </a>    </button>&nbsp;&nbsp;
                -->
-            <button class="btn btn-outline-info" 
-                style="background: white; color: rgb(218, 164, 48);" id="pdf" onclick="display()"><i class="fa fa-print"></i></button>&nbsp;&nbsp;
+            <button class="btn btn-outline-info" style="background: white; color: rgb(218, 164, 48);" id="pdf"
+                onclick="display()"><i class="fa fa-print"></i></button>&nbsp;&nbsp;
 
 
             <button class="btn btn_pdf btn-outline-info" style="background: white; color: rgb(218, 164, 48);"> <i
@@ -167,178 +178,150 @@
 
 
 
+<div class="printable-wrapper" id="container-to-print">
 
-<div class="printable-wrapper" id="container-to-print" >
-
-    <div class="printable-content" >
+    <div class="printable-content">
         <center>
-        <h6 style="font-size: 30px;color: rgb(218, 164, 48);">{{company.company_name }}</h6>
-        <h2 class="my-4" id="headline" style="font-size: 35px;color: rgb(218, 164, 48);">INVOICE DETAILS</h2>
-        <div class="display">
-            <div id="d1" style="display: inline-block;"></div>&nbsp;-&nbsp; 
-            <div id="d2" style="display: inline-block;"></div>
+            <h6 style="font-size: 30px;color: rgb(218, 164, 48);">{{company.company_name }}</h6>
+            <h2 class="my-4" id="headline" style="font-size: 35px;color: rgb(218, 164, 48);">INVOICE DETAILS</h2>
+            <div class="display">
+                <div id="d1" style="display: inline-block;"></div>&nbsp;-&nbsp;
+                <div id="d2" style="display: inline-block;"></div>
+            </div>
+
+            <!-- <p class="text" style="color: white;" id="date-range-display">From <span id="start_date"></span> To <span id="end_date"></span></p> -->
+
+            <!-- <p class="text" style="color: white;">From 21 Jan 2023 To 21 Jan 2024</p> -->
+        </center>
+
+        <div class="printable-content search">
+            <input name="SearchInp" class="form-control text-dark" id="search" placeholder="Search..."
+                style="width: 20vw;background-color: white;">
         </div>
 
-        <!-- <p class="text" style="color: white;">From 21 Jan 2023 To 21 Jan 2024</p> -->
-    </center>
-
-    <div class="printable-content search">
-        <input name="SearchInp" class="form-control text-dark" id="search" placeholder="Search..." style="width: 20vw;background-color: white;" >
-    </div>
-
-<div id="pdf-card">
+        <div id="pdf-card">
 
 
-    <table class="table table-responsive-md mt-4 table-bordered" id="myTable">
-        <thead>
+            <table class="table table-responsive-md mt-4 table-bordered" id="myTable">
+                <thead>
 
-            <tr style="">
+                    <tr style="">
 
-                <th class="table text-center" style=" color: rgb(218, 164, 48);width: auto;">Date
-                </th>
-                <th class="table text-center" style="color: rgb(218, 164, 48);width: auto;">Customer
-                    Name</th>
-                <th class="table text-center" style=" color: rgb(218, 164, 48);width: auto;">Invoice
-                </th>
-                <th class="table text-center" style=" color: rgb(218, 164, 48);width: auto;">Total
-                </th>
-                <th class="table text-center" style="color: rgb(218, 164, 48);width: auto;">Balance
-                </th>
+                        <th class="table text-center" style=" color: rgb(218, 164, 48);width: auto;">Date
+                        </th>
+                        <th class="table text-center" style="color: rgb(218, 164, 48);width: auto;">Customer
+                            Name</th>
+                        <th class="table text-center" style=" color: rgb(218, 164, 48);width: auto;">Invoice
+                        </th>
+                        <th class="table text-center" style=" color: rgb(218, 164, 48);width: auto;">Total
+                        </th>
+                        <th class="table text-center" style="color: rgb(218, 164, 48);width: auto;">Balance
+                        </th>
 
-            </tr>
-        </thead>
+                    </tr>
+                </thead>
 
-        <tbody>
+                <tbody>
 
+                    {% for i in invoice %}
+                    <tr class="text-center " id="tb">
+                        <td id="tb" style="">{{ i.inv_date }}</td>
+                        <td>{{ i.customer.customerName }}</td>
+                        <td>{{ i.invoice_no }}</td>
+                        <td>{{ i.grandtotal }}</td>
+                        <td>{{ i.balance }}</td>
+                    </tr>
+                    {% endfor %}
 
-
-            <tr class="text-center " id="tb">
-                <td id="tb" style=""></td>
-                <td>Arun</td>
-                <td>Re101</td>
-                <td>1000</td>
-                <td>500</td>
-            </tr>
-
-            <tr class="text-center " id="tb">
-                <td></td>
-                <td>Manu</td>
-                <td>Re102</td>
-                <td>1001</td>
-                <td>501</td>
-            </tr>
+                    </tr>
 
 
-        </tbody>
-    </table>
+                </tbody>
+            </table>
 
-</div>
+        </div>
     </div>
 </div>
 
+<script>
+    // Get references to the date input fields and the display div
+    var fromDateInput = document.getElementById("FromDate");
+    var toDateInput = document.getElementById("ToDate");
+    var d1 = document.getElementById("d1");
+    var d2 = document.getElementById("d2");
 
+    // Function to update the display div with the selected dates
+    function updateDisplay() {
+        // Parse the selected date values as Date objects
+        var fromDate = new Date(fromDateInput.value);
+        var toDate = new Date(toDateInput.value);
 
+        // Check if the selected dates are valid
+        if (!isNaN(fromDate) && !isNaN(toDate)) {
+            // Format the dates in the desired format
+            var fromDateString = fromDate.toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' });
+            var toDateString = toDate.toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' });
 
- <script>
-
-function updateSelectedDates() {
-    var startDate = new Date(document.getElementById("in1").value);
-    var endDate = new Date(document.getElementById("in2").value);
-    
-    var startDateString = startDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-    var endDateString = endDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-
-    document.getElementById("d1").textContent = startDateString;
-    document.getElementById("d2").textContent = endDateString;
-}
-
-// Attach the function to the change event of the date inputs
-document.getElementById("in1").addEventListener("change", updateSelectedDates);
-document.getElementById("in2").addEventListener("change", updateSelectedDates);
-
-    function setDate() {
-        var startDate = new Date(document.getElementById("in1").value);
-        var endDate = new Date(document.getElementById("in2").value);
-        var rows = table.getElementsByTagName("tr")
-
-
-        for (var i = 1; i < rows.length; i++) {
-            var row = rows[i];
-
-
-            var dateCell = row.cells[1];
-            var rowDate = new Date(dateCell.textContent);
-
-            if (rowDate >= startDate && rowDate <= endDate) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
-            }
-
+            // Update the content of the display div
+            d1.textContent = fromDateString;
+            d2.textContent = toDateString;
         }
     }
-    var table = document.getElementById("myTable");
 
-    var fromDate;
-    $('#in1').on('change', function () {
-        fromDate = $(this).val();
-        $('#in2').prop('min', function () {
-            return fromDate
-        })
-        var startDate = new Date(document.getElementById("in1").value);
-        var endDate = new Date(document.getElementById("in2").value);
-        var rows = table.getElementsByTagName("tr")
-        var filterValue = document.getElementById("pin").value.toLowerCase()
+    // Add event listeners to the date input fields to trigger the updateDisplay function
+    fromDateInput.addEventListener("input", updateDisplay);
+    toDateInput.addEventListener("input", updateDisplay);
+</script>
 
-        for (var i = 1; i < rows.length; i++) {
-            var firstColumnValue = rows[i].getElementsByTagName("td")[0].textContent.toLowerCase();
-            var row = rows[i];
-            var dateCell = row.cells[1];
-            var rowDate = new Date(dateCell.textContent);
+<script>
+    var fromDateInput = document.getElementById("FromDate");
+    var toDateInput = document.getElementById("ToDate");
 
-            if (rowDate >= startDate) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
-            }
+    fromDateInput.addEventListener("input", filterTable);
+    toDateInput.addEventListener("input", filterTable);
 
-        }
-        selectParty();
-        var tdate = new Date(fromDate)
-        var options = { year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById("d1").innerHTML = tdate.toLocaleDateString(undefined, options);
+    function filterTable() {
+        var fromDate = new Date(fromDateInput.value);
+        var toDate = new Date(toDateInput.value);
 
-    })
-    var toDate;
-    $('#in2').on('change', function () {
-        toDate = $(this).val();
-        $('#in1').prop('max', function () {
-            return toDate
-        })
-        var startDate = new Date(document.getElementById("in1").value);
-        var endDate = new Date(document.getElementById("in2").value);
+        var table = document.getElementById("myTable");
         var rows = table.getElementsByTagName("tr");
-        var filterValue = document.getElementById("pin").value.toLowerCase()
+
         for (var i = 1; i < rows.length; i++) {
-            var firstColumnValue = rows[i].getElementsByTagName("td")[0].textContent.toLowerCase();
             var row = rows[i];
-            var dateCell = row.cells[1];
-            var rowDate = new Date(dateCell.textContent);
-
-            if (rowDate >= startDate && rowDate <= endDate) {
-                row.style.display = "";
-                console.log("display");
-            } else {
-                row.style.display = "none";
-
+            var dateCell = row.getElementsByTagName("td")[0];
+            if (dateCell) {
+                var cellDate = new Date(dateCell.textContent);
+                if (cellDate >= fromDate && cellDate <= toDate) {
+                    row.style.display = "";
+                } else if (cellDate.toDateString() === fromDate.toDateString() || cellDate.toDateString() === toDate.toDateString()) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
             }
         }
-        selectParty();
-        var tdate = new Date(toDate)
-        var options = { year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById("d2").innerHTML = "  To  " + tdate.toLocaleDateString(undefined, options);
+    }
 
-    })
+
+</script>
+
+<script>
+
+    function updateSelectedDates() {
+        var startDate = new Date(document.getElementById("in1").value);
+        var endDate = new Date(document.getElementById("in2").value);
+
+        var startDateString = startDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        var endDateString = endDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+        document.getElementById("d1").textContent = startDateString;
+        document.getElementById("d2").textContent = endDateString;
+    }
+
+    // Attach the function to the change event of the date inputs
+    document.getElementById("in1").addEventListener("change", updateSelectedDates);
+    document.getElementById("in2").addEventListener("change", updateSelectedDates);
 
 </script>
 
@@ -439,30 +422,30 @@ document.getElementById("in2").addEventListener("change", updateSelectedDates);
 
 <script>
 
-function adjustTableForPrint() {
-
-        
-const table = document.querySelector('.printable-content table');
-const container = document.querySelector('.printable-content');
+    function adjustTableForPrint() {
 
 
-const scaleFactor = container.offsetWidth / table.offsetWidth;
+        const table = document.querySelector('.printable-content table');
+        const container = document.querySelector('.printable-content');
 
 
-table.style.transform = `scale(${scaleFactor})`;
-table.style.transformOrigin = 'top left';
+        const scaleFactor = container.offsetWidth / table.offsetWidth;
 
 
-const marginTop = (container.offsetHeight - table.offsetHeight * scaleFactor) / 2;
-table.style.marginTop = `${marginTop}px`;
-}
+        table.style.transform = `scale(${scaleFactor})`;
+        table.style.transformOrigin = 'top left';
 
-//  "Print" button
-const printButton = document.getElementById('pdf');
-printButton.addEventListener('click', function() {
-adjustTableForPrint();
-window.print();
-});
+
+        const marginTop = (container.offsetHeight - table.offsetHeight * scaleFactor) / 2;
+        table.style.marginTop = `${marginTop}px`;
+    }
+
+    //  "Print" button
+    const printButton = document.getElementById('pdf');
+    printButton.addEventListener('click', function () {
+        adjustTableForPrint();
+        window.print();
+    });
 </script>
 
 
@@ -494,37 +477,6 @@ window.print();
 
 
 
-
-
-
-<!-- <script>
-
-    function adjustTableForPrint() {
-            
-            const table = document.querySelector('.printable-content table');
-            const container = document.querySelector('.printable-content');
-    
-           
-            const scaleFactor = container.offsetWidth / table.offsetWidth;
-    
-            
-            table.style.transform = `scale(${scaleFactor})`;
-            table.style.transformOrigin = 'top left';
-    
-            
-            const marginTop = (container.offsetHeight - table.offsetHeight * scaleFactor) / 2;
-            table.style.marginTop = `${marginTop}px`;
-        }
-    
-        //  "Print" button
-        const printButton = document.getElementById('pdf');
-        printButton.addEventListener('click', function() {
-            adjustTableForPrint();
-            window.print();
-        });
-    
-    
-    </script> -->
 
 
 
@@ -574,93 +526,6 @@ window.print();
 </script>
 
 
-
-<script>
-    function setDate() {
-        var startDate = new Date(document.getElementById("in1").value);
-        var endDate = new Date(document.getElementById("in2").value);
-        var rows = table.getElementsByTagName("tr")
-
-
-        for (var i = 1; i < rows.length; i++) {
-            var row = rows[i];
-
-
-            var dateCell = row.cells[1];
-            var rowDate = new Date(dateCell.textContent);
-
-            if (rowDate >= startDate && rowDate <= endDate) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
-            }
-
-        }
-    }
-    var table = document.getElementById("myTable");
-
-    var fromDate;
-    $('#in1').on('change', function () {
-        fromDate = $(this).val();
-        $('#in2').prop('min', function () {
-            return fromDate
-        })
-        var startDate = new Date(document.getElementById("in1").value);
-        var endDate = new Date(document.getElementById("in2").value);
-        var rows = table.getElementsByTagName("tr")
-        var filterValue = document.getElementById("pin").value.toLowerCase()
-
-        for (var i = 1; i < rows.length; i++) {
-            var firstColumnValue = rows[i].getElementsByTagName("td")[0].textContent.toLowerCase();
-            var row = rows[i];
-            var dateCell = row.cells[1];
-            var rowDate = new Date(dateCell.textContent);
-
-            if (rowDate >= startDate) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
-            }
-
-        }
-        selectParty();
-        var tdate = new Date(fromDate)
-        var options = { year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById("d1").innerHTML = tdate.toLocaleDateString(undefined, options);
-
-    })
-    var toDate;
-    $('#in2').on('change', function () {
-        toDate = $(this).val();
-        $('#in1').prop('max', function () {
-            return toDate
-        })
-        var startDate = new Date(document.getElementById("in1").value);
-        var endDate = new Date(document.getElementById("in2").value);
-        var rows = table.getElementsByTagName("tr");
-        var filterValue = document.getElementById("pin").value.toLowerCase()
-        for (var i = 1; i < rows.length; i++) {
-            var firstColumnValue = rows[i].getElementsByTagName("td")[0].textContent.toLowerCase();
-            var row = rows[i];
-            var dateCell = row.cells[1];
-            var rowDate = new Date(dateCell.textContent);
-
-            if (rowDate >= startDate && rowDate <= endDate) {
-                row.style.display = "";
-                console.log("display");
-            } else {
-                row.style.display = "none";
-
-            }
-        }
-        selectParty();
-        var tdate = new Date(toDate)
-        var options = { year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById("d2").innerHTML = "  To  " + tdate.toLocaleDateString(undefined, options);
-
-    })
-
-</script>
 
 
 
