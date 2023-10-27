@@ -131,11 +131,13 @@
 </style>
     
 <section style="height: 1200px; overflow-y: auto;">
-  <div class="row   container"  style="top: 5rem;border-radius: 10px;background-color: #191C24;margin-left: 150px;"  >
+  <div class="row   container-fluid"  style="top: 5rem;border-radius: 10px;background-color: #191C24;"  >
    
     <div class="col-md-10 ">
        <div class="row align-content-center">
-        <h3 class="mb-3  text-danger mr-2 mt-2 ">Edit </h3>  <h2 class="">{{e.Name}}</h2>   
+        <h2 class="mb-4  text-white mr-2 mt-2 pt-3">Edit Item </h2>  
+        
+        <h3 class="mt-2 mb-4">{{e.Name}}</h3>   
        </div>
     
         <form action="{% url 'edit_db' e.id %}" method="post">
@@ -147,13 +149,13 @@
                   <div class="col-sm-10 form-inline">
                       <div class="form-check">
                           <input class="form-check-input" type="radio" name="type" id="gridRadios1" value="Goods" {% if e.type == 'Goods' %}checked{% endif %} required>
-                          <label class="form-check-label" for="gridRadios1">
+                          <label class="form-check-label text-white" for="gridRadios1">
                               Goods
                           </label>
                       </div>
                       <div class="form-check ml-5">
                           <input class="form-check-input" type="radio" name="type" id="gridRadios2" value="Services" {% if e.type == 'Services' %}checked{% endif %} style="margin-left:50px;" required>
-                          <label class="form-check-label" for="gridRadios2">
+                          <label class="form-check-label  text-white" for="gridRadios2">
                               Services
                           </label>
                       </div>
@@ -169,6 +171,7 @@
             <div class="form-group row">
               <label  class="col-sm-2 col-form-label">Unit <i class="fa fa-question-circle"></i></label>
               <div class="col-sm-10 col-md-7 col-9" style="margin-left: -2.2rem;">
+                <div class="d-flex align-items-center">
                 <select  name="unit" class="form-control bg-white text-black" id="unit">
                    {% for s in u %}    
                     {% if s.id == e.unit.id %}
@@ -178,9 +181,11 @@
                     {% endif %}
                 {% endfor %}
                   </select>               
-                 </div>
-                 <button type="button" style="width:6rem;" class="open-button" onclick="openForm()">Add Unit</button>
+                 
+                 <button style="width: 2.5rem; background-color: chocolate; color: black; border-radius: 3px; margin-left: 10px;" class="open-button" onclick="openForm()">+</button>
+                </div>
             </div>
+          </div>
             <div class="form-group row">
               <label  class="col-sm-2 col-form-label">HSN Code</label>
               <div class="col-sm-10 col-md-7 col-9" style="margin-left: -2.2rem;">
@@ -221,7 +226,7 @@
                                 <div class="col-sm-10 col-md-7 col-9 ml-5">
                                     <div class="input-group mb-2">
                                         <div class="input-group-prepend">
-                                          <div class="input-group-text">INR</div>
+                                          <div class="input-group-text text-white">INR</div>
                                         </div>
                                         <input required type="text" name="sel_price" class="form-control  bg-white text-black" value="{{e.s_price}}" >
                                       </div>
@@ -265,7 +270,7 @@
                                 <div class="col-sm-10 col-md-7 col-9">
                                     <div class="input-group mb-2">
                                         <div class="input-group-prepend">
-                                          <div class="input-group-text">INR</div>
+                                          <div class="input-group-text text-white">INR</div>
                                         </div>
                                         <input required type="text" class="form-control bg-white text-black" name="cost_price" value="{{e.p_price}}" >
                                       </div>
@@ -276,7 +281,7 @@
                                 <div class="col-sm-10 col-md-7 col-9">
    
    
-   
+                                  <div class="d-flex align-items-center">
                                   <select name="cost_acc" class="form-control  bg-white text-black" id="myaccount">
 
                                     {% for s in p %}    
@@ -298,16 +303,26 @@
                                                                                      
 
    
-                                </div> 
-                                <button type="button"   id="showFormButton" style="width:4.5rem;" class="openbutton" onclick="showForm()">Add</button>
+                               
+                                  <button id="showFormButton" style="width: 40px; background-color: chocolate; color: black; border-radius: 3px; margin-left: 10px;" class="openbutton" onclick="showForm()">+</button>
+                              </div> 
                               </div>
+                            </div> 
                               <div class="form-group row">
                                 <label  class="col-sm-2 col-form-label">Description </label>
                                 <div class="col-sm-10 col-md-7 col-9">
                                   <input required  type="text" name="cost_desc" class="form-control  bg-white text-black" value="{{e.p_desc}}" >
                                 </div>
                               </div>
+
+                              
                         </div>
+                </div>
+                <div class="form-group row mt-1">
+                  <label  class="col-sm-2 col-form-label">Minimum Stock to maintain </label>
+                  <div class="col-sm-7 col-md-3 col-9">
+                    <input  type="text" name="minimum_stock" class="form-control text-black" style="margin-left: -2.4rem;" value="{{e.minimum_stock}}">
+                  </div>
                 </div>
                 <fieldset class="form-group">
                   <div class="row">
@@ -315,11 +330,11 @@
                     <div class="col-sm-10 form-inline">
                       <div class="form-check ">
                         <input required class="form-check-input" type="radio" name="status" id="gridRadios1" value="Active"  {% if e.satus == 'Active' %}checked{% endif %} >
-                        <label class="form-check-label" for="gridRadios1">Activate</label>
+                        <label class="form-check-label text-white" for="gridRadios1">Activate</label>
                       </div>
                       <div class="form-check ml-5">
                         <input required class="form-check-input" type="radio" name="status" id="gridRadios2" value="Inactive"   {% if e.satus == 'Inactive' %}checked{% endif %} style="margin-left:50px;">
-                        <label class="form-check-label" for="gridRadios2">Non-Activate</label>
+                        <label class="form-check-label text-white" for="gridRadios2">Non-Activate</label>
                       </div>
                         
                     </div>
@@ -360,11 +375,11 @@
                               <div class="col-sm-10 form-inline">
                                   <div class="form-check">
                                       <input class="form-check-input" type="radio" name="satus" id="gridRadios1" value="Active" {% if e.status_stock == 'Active' %}checked{% endif %}>
-                                      <label class="form-check-label" for="gridRadios1">Activate</label>
+                                      <label class="form-check-label text-white" for="gridRadios1">Activate</label>
                                   </div>
                                   <div class="form-check ml-5">
                                       <input class="form-check-input" type="radio" name="satus" id="gridRadios2" value="Inactive" {% if e.status_stock == 'Inactive' %}checked{% endif %} style="margin-left: 50px;">
-                                      <label class="form-check-label" for="gridRadios2">Non-Activate</label>
+                                      <label class="form-check-label text-white" for="gridRadios2">Non-Activate</label>
                                   </div>
                               </div>
                           </div>
@@ -381,9 +396,9 @@
 
 
            
-          <div class="form-inline">
-            <input type="submit"  class="mr-3 btn btn-success"  value="Save">
-            <input type="submit" class="btn btn-secondary but" value="Cancel" style="margin-left:20px;">
+          <div class="form-inline pb-5">
+            <input type="submit"  class="mr-3 btn " style="background-color: chocolate;"  value="Save">
+            <input type="submit" class="btn  but" value="Cancel" style="margin-left:20px;background-color: chocolate;">
           </div>
           </form>
         </section>

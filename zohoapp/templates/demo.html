@@ -201,36 +201,41 @@
 
 
 
-       <div class="mt-4" style="overflow-y: auto; height: 520px;">
+       <div class="mt-4" style="overflow-y:auto;overflow-x:hidden; height: 520px;">
         <div class="  " >
-          <div class="card text-black py-0" style="width: 65vw; background: #ffddb0;margin-left: -1rem;">
+          <div class="card text-black py-0" style="width:58vw; background: #ffddb0;margin-left: -1rem;">
             <div class="card-body" style="margin-left: 20px;">
               <h2 class="text-center" style="margin-top: 7rem;">{{product.Name}}</h2>
               <hr>
 
               <h6 style="margin-top: -10.3rem;">Date </h6>
-              <h6 style="margin-top: -1.6rem; margin-left: 9.5rem; margin-bottom: 2rem;">: {{product.date}}</h6> <br>
+              <h6 style="margin-top: -1.6rem; margin-left:13rem; margin-bottom: 2rem;">: {{product.date}}</h6> <br>
 
               <h6 style="margin-top: -2.9rem;">HSN Code</h6>
-              <h6 style="margin-top: -1.6rem; margin-left: 9.5rem; margin-bottom: 2rem; font-size: 15px;">
+              <h6 style="margin-top: -1.6rem; margin-left:13rem; margin-bottom: 2rem; font-size: 15px;">
                 : {{product.hsn}}</h6>
 
               <h6 style="margin-top: -1.6rem;">Stock on Inventory</h6>
-              <h6 style="margin-top: -1.6rem; margin-left: 9.5rem; margin-bottom: 2rem; font-size: 15px;">
+              <h6 style="margin-top: -1.6rem; margin-left: 13rem; margin-bottom: 2rem; font-size: 15px;">
                 : {{product.stock}}</h6>
 
-              <h6 style="margin-top: -6.5rem; margin-left: 42rem;"><b>Cost price </b></h6> <br>
-              <h6 style="margin-top: -3.25rem; margin-left: 49rem; font-size: 18px;">
+                <h6 style="margin-top: -1.6rem;">Minimum Stock to Maintain</h6>
+                <h6 style="margin-top: -1.7rem; margin-left: 13rem; margin-bottom: 2rem; font-size: 15px;">
+                  : {{product.minimum_stock}}</h6>
+  
+
+              <h6 style="margin-top: -6.5rem; margin-left: 36rem;"><b>Cost price </b></h6> <br>
+              <h6 style="margin-top: -3.25rem; margin-left: 43rem; font-size: 18px;">
                 :<li class="fa fa-rupee" style="margin-left: 5px;">&nbsp;<b >{{product.p_price}}</b></li>
               </h6> <br>
 
-              <h6 style="margin-top: -1.5rem; margin-left: 42rem;"><b>Selling price </b></h6> <br>
-              <h6 style="margin-top: -3.3rem; margin-left: 49rem;  font-size: 18px;">
+              <h6 style="margin-top: -1.5rem; margin-left: 36rem;"><b>Selling price </b></h6> <br>
+              <h6 style="margin-top: -3.3rem; margin-left: 43rem;  font-size: 18px;">
                 :<li class="fa fa-rupee"  style="margin-left: 5px;">&nbsp;<b>{{product.s_price}}</b></li>
               </h6> <br>
 
-              <h6 style="margin-top: -1.6rem; margin-left: 42rem;"><b>Stock Value </b></h6>
-              <h6 style="margin-top: -1.8rem; margin-left: 49rem; margin-bottom: 3.5rem; font-size: 18px;">
+              <h6 style="margin-top: -1.6rem; margin-left: 36rem;"><b>Stock Value </b></h6>
+              <h6 style="margin-top: -1.8rem; margin-left: 43rem; margin-bottom: 3.5rem; font-size: 18px;">
                 : <li class="fa fa-rupee"  style="margin-left: 5px;">&nbsp;<b>{{ stock }}</b></li>
               </h6>
 
@@ -268,7 +273,7 @@
 
             <div>
               <div class="card"
-                style="margin-left:35rem;width:26vw;height: auto; margin-top:-35rem; background-color: rgb(110, 61, 46);">
+                style="margin-left:28rem;width:26vw;height: auto; margin-top:-35rem; background-color: rgb(110, 61, 46);">
                 <div class="card-body" style="color:White;">
                   <h4 class="text-center">PURCHASE DETAILS</h4>
                   <hr>
