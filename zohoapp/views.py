@@ -501,6 +501,7 @@ def add(request):
                 cost=Purchase.objects.get(id=cost_acc)
                 invacc=request.POST.get('invacc')
                 stock=request.POST.get('openstock')
+                stock_per_unit = request.POST.get('inventoryaccntperunit')
            
                 print('satus')
                 
@@ -522,7 +523,8 @@ def add(request):
                                 interstate=inter,
                                 intrastate=intra,
                                 invacc=invacc,
-                                stock=stock
+                                stock=stock,
+                                rate=stock_per_unit
                                 )
                 ad_item.save()
                 
@@ -550,7 +552,9 @@ def add(request):
                 sel=Sales.objects.get(id=sel_acc)
                 cost=Purchase.objects.get(id=cost_acc)
                 istock = request.POST['openstock']
-               
+                invacc=request.POST.get('invacc')
+                stock_per_unit = request.POST.get('inventoryaccntperunit')
+
                 ad_item=AddItem(type=type,
                                 Name=name,
                                 hsn=hsn,
@@ -568,7 +572,9 @@ def add(request):
                                 creat=history,
                                 interstate='none',
                                 intrastate='none',
-                                stock=istock
+                                invacc=invacc,
+                                stock=istock,
+                                rate=stock_per_unit
                             
                                
                                 )
@@ -604,28 +610,64 @@ def edititem(request,id):
 @login_required(login_url='login')
 def edit_db(request,id):
         if request.method=='POST':
+            radio=request.POST.get('radio')
             edit=AddItem.objects.get(id=id)
-            edit.type=request.POST.get('type')
-            edit.Name=request.POST['name']
-            unit=request.POST.get('unit')
-            edit.s_price=request.POST['sel_price']
-            sel_acc=request.POST['sel_acc']
-            edit.s_desc=request.POST['sel_desc']
-            edit.p_price=request.POST['cost_price']
-            cost_acc=request.POST['cost_acc']        
-            edit.p_desc=request.POST['cost_desc']
-            edit.hsn=request.POST['hsn']
-            edit.stock=request.POST['openstock']
-            edit.satus=request.POST.get('status')
-            edit.invacc=request.POST.get('invacc')
-            edit.rate=request.POST['inventoryaccntperunit']
-            edit.status_stock=request.POST.get('satus')
-            edit.unit=Unit.objects.get(id=unit)
-            edit.sales=Sales.objects.get(id=sel_acc)
-            edit.purchase=Purchase.objects.get(id=cost_acc)
-            
 
-            edit.save()
+            if radio =='taxable':
+                edit.interstate=request.POST['inter']
+                edit.intrastate=request.POST['intra']
+                edit.type=request.POST.get('type')
+                edit.Name=request.POST['name']
+                unit=request.POST.get('unit')
+                
+                edit.s_price=request.POST['sel_price']
+                sel_acc=request.POST['sel_acc']
+                edit.s_desc=request.POST['sel_desc']
+                edit.p_price=request.POST['cost_price']
+                cost_acc=request.POST['cost_acc']        
+                edit.p_desc=request.POST['cost_desc']
+                edit.hsn=request.POST['hsn']
+                edit.stock=request.POST['openstock']
+                edit.satus=request.POST.get('status')
+                edit.invacc=request.POST.get('invacc')
+                edit.tax=request.POST.get('radio')
+                edit.rate=request.POST.get('inventoryaccntperunit')
+                edit.status_stock=request.POST.get('satus')
+                
+                edit.unit=Unit.objects.get(unit=unit)
+                
+                edit.sales=Sales.objects.get(id=sel_acc)
+                edit.purchase=Purchase.objects.get(id=cost_acc)
+                edit.minimum_stock=request.POST.get('minimum_stock')
+                edit.save()
+            
+            else:
+                edit.type=request.POST.get('type')
+                edit.Name=request.POST['name']
+                unit=request.POST.get('unit')
+                edit.s_price=request.POST['sel_price']
+                sel_acc=request.POST['sel_acc']
+                edit.s_desc=request.POST['sel_desc']
+                edit.p_price=request.POST['cost_price']
+                cost_acc=request.POST['cost_acc']        
+                edit.p_desc=request.POST['cost_desc']
+                edit.hsn=request.POST['hsn']
+                edit.stock=request.POST['openstock']
+                edit.satus=request.POST.get('status')
+                edit.invacc=request.POST.get('invacc')
+                edit.tax=request.POST.get('radio')
+                edit.rate=request.POST.get('inventoryaccntperunit')
+                edit.status_stock=request.POST.get('satus')
+                edit.minimum_stock=request.POST.get('minimum_stock')
+                edit.unit=Unit.objects.get(unit=unit)
+                edit.sales=Sales.objects.get(id=sel_acc)
+                edit.purchase=Purchase.objects.get(id=cost_acc)
+                edit.save()
+
+
+
+
+            
             
             return redirect('detail', id=edit.id)
 
