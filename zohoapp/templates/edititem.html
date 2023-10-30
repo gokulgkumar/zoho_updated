@@ -365,6 +365,64 @@ select2_div.style.display = "none";
    
    
                                   <div class="d-flex align-items-center">
+                                  <!-- <select name="cost_acc" class="form-control  bg-white text-black" id="myaccount">
+
+                                    {% for s in p %}    
+                                    {% if s.id == e.purchase.id %}
+                                    <option value="{{s.id}} " selected >{{e.purchase.Account_name}}</option>
+                                    {% endif %}
+                                    {% endfor %}
+                                    {% for account_type in account_types %}
+                                    <option value="" disabled class="btn btn-dark text-white"><b>{{ account_type }}</b></option>
+                                    {% for account in accounts %}
+                                    {% if account.Account_type == account_type %}
+                                    <option value="{{account.id}}">{{ account.Account_name }}</option>
+                                    {% endif %}
+                                    {% endfor %}
+                                                          
+                                    {% endfor %}
+
+                                  </select>   -->
+
+
+                                  <select name="cost_acc" class="form-control  bg-white text-black" id="myaccount">
+
+                                    {% for s in p %}    
+                                    {% if s.id == e.purchase.id %}
+                                    <option value="{{s.id}} " selected >{{e.purchase.Account_name}}</option>
+                                    {% endif %}
+                                    {% endfor %}
+                                    {% for account_type in account_types %}
+                                    <option value="" disabled class="btn btn-dark text-white"><b>{{ account_type }}</b></option>
+                                    {% for account in accounts %}
+                                    {% if account.Account_type == account_type %}
+                                    <option value="{{account.id}}">{{ account.Account_name }}</option>
+                                    {% endif %}
+                                    {% endfor %}
+                                                          
+                                    {% endfor %}
+
+                                  </select>  
+
+                                  <select name="cost_acc" class="form-control  bg-white text-black" id="myaccount">
+
+                                    {% for s in p %}    
+                                    {% if s.id == e.purchase.id %}
+                                    <option value="{{s.id}} " selected >{{e.purchase.Account_name}}</option>
+                                    {% endif %}
+                                    {% endfor %}
+                                    {% for account_type in account_types %}
+                                    <option value="" disabled class="btn btn-dark text-white"><b>{{ account_type }}</b></option>
+                                    {% for account in accounts %}
+                                    {% if account.Account_type == account_type %}
+                                    <option value="{{account.id}}">{{ account.Account_name }}</option>
+                                    {% endif %}
+                                    {% endfor %}
+                                                          
+                                    {% endfor %}
+
+                                  </select>  
+
                                   <select name="cost_acc" class="form-control  bg-white text-black" id="myaccount">
 
                                     {% for s in p %}    
